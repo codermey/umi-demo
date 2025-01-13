@@ -1,0 +1,55 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi generate tmp",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage",
+    "lint:lint-staged": "lint-staged",
+    "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,json,tsx,ts,css,less,scss,vue,html,md}\"",
+    "lint:eslint": "eslint \"{src,mock}/**/*.{vue,js,jsx,ts,tsx}\" --fix",
+    "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/"
+  },
+  "lint-staged": {
+    "*.{less,css,scss}": [
+      "prettier --write",
+      "stylelint --fix"
+    ],
+    "*.{md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x),*.js?(x)": [
+      "eslint --fix",
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/pro-layout": "^6.5.0",
+    "react": "17.x",
+    "react-dom": "17.x",
+    "umi": "^3.5.43"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@umijs/fabric": "^4.0.1",
+    "@umijs/preset-react": "1.x",
+    "@umijs/test": "^3.5.43",
+    "commitizen": "^4.3.1",
+    "cz-customizable": "^7.4.0",
+    "husky": "8",
+    "lint-staged": "^10.0.7",
+    "prettier": "^2.2.0",
+    "typescript": "^4.1.2",
+    "yorkie": "^2.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  }
+}
